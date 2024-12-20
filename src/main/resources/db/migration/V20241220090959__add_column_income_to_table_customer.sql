@@ -1,0 +1,1 @@
+ALTER TABLE customer ADD COLUMN income DECIMAL(19,2) NOT NULL;

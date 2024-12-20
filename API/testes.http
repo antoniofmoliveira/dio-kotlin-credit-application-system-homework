@@ -1,0 +1,57 @@
+POST http://localhost:8080/api/customers HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Cami",
+    "lastName": "Silva",
+    "cpf": "03629109870",
+    "income": 1000.00,
+    "email": "cami@silva",
+    "password": "1234",
+    "zipCode": "12345678",
+    "street": "Rua 1"
+
+}
+
+###
+
+GET http://localhost:8080/api/customers/1 HTTP/1.1
+
+###
+
+PATCH http://localhost:8080/api/customers/?customerId=1 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Cami",
+    "lastName": "Silva",
+    "income": 1000.00,
+    "zipCode": "12345679",
+    "street": "Rua 21"
+}
+
+###
+
+DELETE http://localhost:8080/api/customers/2 HTTP/1.1
+
+###
+
+POST http://localhost:8080/api/credits HTTP/1.1
+content-type: application/json
+
+{
+    "customerId": 2,
+    "creditValue": 1000.00,
+    "numberOfInstallments": 1,
+    "dayFirstInstallment": "2024-01-01",
+    "status": "IN_PROGRESS",
+    "costumerIde":1
+}
+
+###
+
+GET http://localhost:8080/api/credits/da567a37-18d5-415d-8bb9-5da6a4f1c513?customerId=1	 HTTP/1.1
+
+###
+
+GET http://localhost:8080/api/credits?customerId=2 HTTP/1.1
