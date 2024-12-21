@@ -45,7 +45,7 @@ content-type: application/json
     "numberOfInstallments": 1,
     "dayFirstInstallment": "2024-01-01",
     "status": "IN_PROGRESS",
-    "costumerIde":1
+    "costumerId":1
 }
 
 ###

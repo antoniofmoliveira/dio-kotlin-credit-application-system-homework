@@ -18,6 +18,10 @@ class CreditResource(
     private val creditService: CreditService
 ) {
 
+    @io.swagger.v3.oas.annotations.Operation(
+        summary = "Saves a credit",
+        tags = ["credits"]
+    )
     @PostMapping
     fun saveCredit(@RequestBody @Valid creditDto: CreditDto): ResponseEntity<String> {
         val credit: Credit = this.creditService.save(creditDto.toEntity())
@@ -26,6 +30,10 @@ class CreditResource(
             .body("Credit ${credit.creditCode} - Customer ${credit.customer?.firstName} saved")
     }
 
+    @io.swagger.v3.oas.annotations.Operation(
+        summary = "Return all credits of a customer",
+        tags = ["customers", "credits"]
+    )
     @GetMapping
     fun findAllByCustomerId(@RequestParam(value = "customerId") customerId: Long): ResponseEntity<List<CreditViewList>> {
         val creditViewList: List<CreditViewList> = this.creditService.findAllByCustomer(customerId).stream()
@@ -36,6 +44,10 @@ class CreditResource(
             .body(creditViewList)
     }
 
+    @io.swagger.v3.oas.annotations.Operation(
+        summary = "Return a credit of a customer",
+        tags = ["customers", "credits"]
+    )
     @GetMapping("/{creditCode}")
     fun findByCreditCode(
         @RequestParam(value = "customerId") customerId: Long,
